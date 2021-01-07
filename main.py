@@ -6,7 +6,6 @@ import os
 import string
 from tkinter import messagebox
 import logging
-import tkinter.scrolledtext as ScrolledText
 
 
 logging.basicConfig(filename="log.txt", format='%(asctime)s - %(levelname)s - %(message)s')
