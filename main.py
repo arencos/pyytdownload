@@ -6,9 +6,11 @@ import os
 import string
 from tkinter import messagebox
 import logging
-
+import platform
 
 logging.basicConfig(filename="log.txt", format='%(asctime)s - %(levelname)s - %(message)s')
+
+print("Program started")
 
 valid_chars = "-_()üğçıİöÖÜĞÇI %s%s" % (string.ascii_letters, string.digits)
 def download():
@@ -27,15 +29,20 @@ def download():
 		logging.error(str(e))
 		print(str(e))
 
+def openLogFile():
+	if(platform.system() == "Linux"):
+		os.system("xdg-open log.txt")
+
 window = tk.Tk()
 window.title("PyYtDownload")
-aboutText = tk.Label(text = "PyYtDownload\nMade by https://github.com/arencos\nBuild:060121\nEnter link above to download files.\nOpen log from the button above\nNOTE: The app might freeze", foreground="yellow", background="black")
+aboutText = tk.Label(text = "PyYtDownload\nMade by https://github.com/arencos\nBuild:120121\nEnter link above to download files.\nOpen log from the button above\nNOTE: The app might freeze", foreground="yellow", background="black")
 
 L1 = Label(window, text="URL")
 E1 = Entry(window, bd = 5)
 logInGui = tk.Text()
 
 mp3Down = Button(window, text="Download (MP4 and MP3)", width=20, command=download)
+openLogFile = Button(window, text="Open log", width=20, command=openLogFile)
 
 T = tk.Text(window, height=10, width=40)
 def redirector(inputStr):
@@ -43,9 +50,11 @@ def redirector(inputStr):
 
 sys.stdout.write = redirector
 
+openLogFile.pack(side=tk.BOTTOM)
 T.pack(side=tk.BOTTOM)
 mp3Down.pack(side=tk.BOTTOM)
 L1.pack(side=tk.BOTTOM)
 E1.pack(side=tk.BOTTOM)
 aboutText.pack()
+
 window.mainloop()
