@@ -32,6 +32,8 @@ def download():
 def openLogFile():
 	if(platform.system() == "Linux"):
 		os.system("xdg-open log.txt")
+	elif(platform.system() == "Windows"):
+		os.system("log.txt")
 
 window = tk.Tk()
 window.title("PyYtDownload")
