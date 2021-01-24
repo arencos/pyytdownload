@@ -12,6 +12,7 @@ logging.basicConfig(filename="log.txt", format='%(asctime)s - %(levelname)s - %(
 
 print("Program started")
 
+# if you have additional stuff to add just send a pull request
 valid_chars = "-_()!&üğçıİöÖÜĞÇI %s%s" % (string.ascii_letters, string.digits)
 def download():
 	try:
