@@ -7,8 +7,7 @@ import string
 from tkinter import messagebox
 import logging
 import platform
-from update_check import isUpToDate
-
+from update_check import checkForUpdates
 logging.basicConfig(filename="log.txt", format='%(asctime)s - %(levelname)s - %(message)s')
 
 print("Program started")
@@ -39,7 +38,7 @@ def openLogFile():
 
 window = tk.Tk()
 window.title("PyYtDownload")
-aboutText = tk.Label(text = "PyYtDownload\nMade by https://github.com/arencos\nBuild:120121\nEnter link above to download files.\nOpen log from the button above\nNOTE: The app might freeze", foreground="yellow", background="black")
+aboutText = tk.Label(text = "PyYtDownload\nMade by https://github.com/arencos\nBuild:240121\nEnter link above to download files.\nOpen log from the button above\nNOTE: The app might freeze", foreground="yellow", background="black")
 
 L1 = Label(window, text="URL")
 E1 = Entry(window, bd = 5)
@@ -53,18 +52,8 @@ def redirector(inputStr):
     T.insert(tk.INSERT, inputStr)
 
 sys.stdout.write = redirector
+checkForUpdates("main.py", "https://raw.githubusercontent.com/arencos/pyytdownload/main/main.py")
 
-print("Checking for updates")
-if not isUpToDate(__file__, "https://raw.githubusercontent.com/arencos/pyytdownload/main/main.py"):
-        print("Update found. Testing update system right now.")
-        messagebox.showinfo("Update", "There is an update available. Please update from https://github.com/arencos/pyytdownload")
-        if(platform.system() == "Linux"):
-                os.system("xdg-open https://github.com/arencos/pyytdownload")
-        elif(platform.system() == "Windows"):
-                os.system("start msedge https://github.com/arencos/pyytdownload")
-else:
-        messagebox.showinfo("Up-to-date", "No update available")
-        print("No update found.")
 
 openLogFile.pack(side=tk.BOTTOM)
 T.pack(side=tk.BOTTOM)
