@@ -53,8 +53,7 @@ def redirector(inputStr):
 
 sys.stdout.write = redirector
 checkForUpdates("main.py", "https://raw.githubusercontent.com/arencos/pyytdownload/main/main.py")
-if(checkForUpdates("setup.bat", "https://raw.githubusercontent.com/arencos/pyytdownload/main/setup.bat") == True):
-        messagebox.showinfo("Hey", "setup.bat was just updated. Please re-run it.")
+checkForUpdates("setup.bat", "https://raw.githubusercontent.com/arencos/pyytdownload/main/setup.bat")
 
 
 
