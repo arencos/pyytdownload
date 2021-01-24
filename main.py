@@ -24,6 +24,7 @@ def download():
 		downloadedVideo = VideoFileClip(os.path.join(''.join(c for c in vid.title if c in valid_chars) + ".mp4"))
 		downloadedVideo.audio.write_audiofile(os.path.join(''.join(c for c in vid.title if c in valid_chars) + ".mp3"))
 		print("Done.")
+		messagebox.showinfo("Done", "Download complete!")
 	except Exception as e:
 		messagebox.showerror("Error.", str(e))
 		logging.error(str(e))
