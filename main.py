@@ -7,6 +7,7 @@ import string
 from tkinter import messagebox
 import logging
 import platform
+from update_check import isUpToDate
 
 logging.basicConfig(filename="log.txt", format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -52,6 +53,18 @@ def redirector(inputStr):
     T.insert(tk.INSERT, inputStr)
 
 sys.stdout.write = redirector
+
+print("Checking for updates")
+if isUpToDate(__file__, "https://raw.githubusercontent.com/arencos/pyytdownload/main/main.py"):
+        print("Update found. Testing update system right now.")
+        messagebox.showinfo("Update", "There is an update available. Please update from https://github.com/arencos/pyytdownload")
+        if(platform.system() == "Linux"):
+                os.system("xdg-open https://github.com/arencos/pyytdownload")
+        elif(platform.system() == "Windows"):
+                os.system("start msedge https://github.com/arencos/pyytdownload")
+else:
+        messagebox.showinfo("Up-to-date", "No update available")
+        print("No update found.")
 
 openLogFile.pack(side=tk.BOTTOM)
 T.pack(side=tk.BOTTOM)
