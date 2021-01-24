@@ -38,7 +38,7 @@ def openLogFile():
 
 window = tk.Tk()
 window.title("PyYtDownload")
-aboutText = tk.Label(text = "PyYtDownload\nMade by https://github.com/arencos\nBuild:240121\nEnter link above to download files.\nOpen log from the button above\nNOTE: The app might freeze", foreground="yellow", background="black")
+aboutText = tk.Label(text = "PyYtDownload\nMade by https://github.com/arencos\nBuild:250121\nEnter link above to download files.\nOpen log from the button above\nNOTE: The app might freeze", foreground="yellow", background="black")
 
 L1 = Label(window, text="URL")
 E1 = Entry(window, bd = 5)
