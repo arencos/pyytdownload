@@ -12,7 +12,7 @@ logging.basicConfig(filename="log.txt", format='%(asctime)s - %(levelname)s - %(
 
 print("Program started")
 
-valid_chars = "-_()üğçıİöÖÜĞÇI %s%s" % (string.ascii_letters, string.digits)
+valid_chars = "-_()!&üğçıİöÖÜĞÇI %s%s" % (string.ascii_letters, string.digits)
 def download():
 	try:
 		url = E1.get()
