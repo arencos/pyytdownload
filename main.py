@@ -55,7 +55,7 @@ def redirector(inputStr):
 sys.stdout.write = redirector
 
 print("Checking for updates")
-if isUpToDate(__file__, "https://raw.githubusercontent.com/arencos/pyytdownload/main/main.py"):
+if not isUpToDate(__file__, "https://raw.githubusercontent.com/arencos/pyytdownload/main/main.py"):
         print("Update found. Testing update system right now.")
         messagebox.showinfo("Update", "There is an update available. Please update from https://github.com/arencos/pyytdownload")
         if(platform.system() == "Linux"):
