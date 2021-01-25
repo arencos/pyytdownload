@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import *
 import pytube
-from moviepy.editor import *
+from moviepy.video.io.VideoFileClip import VideoFileClip
+from moviepy.video.VideoClip import ImageClip
+from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 import os
 import string
 from tkinter import messagebox
